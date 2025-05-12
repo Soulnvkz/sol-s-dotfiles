@@ -11,7 +11,7 @@
 ### zshrc
 
 If you need additional configs for external tools
-put configs files in $HOME/zshrc-externals folder
+put configs files in $HOME/zshrc-external folder
 
 ### Help
 
