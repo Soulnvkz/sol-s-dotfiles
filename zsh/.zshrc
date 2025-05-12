@@ -54,25 +54,17 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-# Aliases
-alias ls='ls --color'
-alias la='ls -a'
-# alias code='zed'
 
-# llama.cpp
-export PATH="$HOME/programming/ai/llama.cpp/build/bin:$PATH"
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-#go
-GO_SRC=/usr/lib/go/src
-# go source
-export PATH="$PATH:$(go env GOPATH)/bin"
-
-#Add .NET Core SDK tools
-export PATH="$PATH:/home/sol/.dotnet/tools"
+# external configs
+ZSH_EXTERNAL="$HOME/.zshrc-external"
+if [ ! -d "$ZSH_EXTERNAL" ]; then
+    mkdir -p "$ZSH_EXTERNAL"
+fi
+for FILE in ${ZSH_EXTERNAL}/*; do
+    source $FILE
+done
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 export PATH=$HOME/.local/bin:$PATH
