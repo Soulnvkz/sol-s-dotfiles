@@ -1,2 +1,4 @@
 alias ls='ls --color'
 alias la='ls -a'
+alias pqi='paru -Qi | awk '\''/^Name/ {name=$3} /^Installed Size/ {print $4 $5, name}'\'' | sort -h'
+alias pqq='paru -Qq | fzf --preview '\''paru -Qil {}'\'' --layout=reverse --bind '\''enter:execute(paru -Qil {} | less)'\'''
