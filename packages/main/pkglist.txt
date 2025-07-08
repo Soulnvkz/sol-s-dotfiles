@@ -191,6 +191,7 @@ xorg-xwd
 xorg-xwininfo
 xorg-xwud
 yay
+yazi
 yt-dlp
 zoxide
 zramd
