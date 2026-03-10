@@ -32,10 +32,6 @@ bindkey -e
 # Load completions
 autoload -Uz compinit && compinit
 
-# Eval
-eval "$(zoxide init --cmd cd zsh)"
-eval "$(fzf --zsh)"
-
 # History
 HISTSIZE=5000
 HISTFILE=~/.zsh_history
@@ -66,7 +62,3 @@ done
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-export PATH=$HOME/.local/bin:$PATH
-export PATH=$HOME/.local/scripts:$PATH
-export PATH=$HOME/.local/share/bob/nvim-bin:$PATH

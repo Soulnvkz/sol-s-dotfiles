@@ -11,7 +11,7 @@
     "command": "selectPrevSuggestion",
     "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
   },
-  
+
   {
     "key": "ctrl+n",
     "command": "workbench.action.quickOpenNavigateNext",
@@ -105,7 +105,7 @@
     "command": "workbench.action.focusEighthEditorGroup"
   },
 
-  // tabs 
+  // tabs
   {
     "key": "alt+1",
     "command": "workbench.action.openEditorAtIndex1"
