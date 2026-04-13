@@ -1,0 +1,4 @@
+export ROCM_DIR=/opt/rocm
+export PATH=$PATH:/opt/rocm/bin
+export LD_LIBARY_PATH=$LD_LIBARY_PATH:/opt/rocm/lib
+export HSA_OVERRIDE_GFX_VERSION=10.3.0
