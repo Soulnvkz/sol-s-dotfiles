@@ -13,6 +13,7 @@ vim.keymap.set('n', '<leader>cd', vim.cmd.Ex)
 vim.keymap.set('n', '<leader>o', ':update<CR> :source<CR>')
 vim.keymap.set('n', '<leader>w', ':write<CR>')
 --
+vim.keymap.set('n', '<leader>cf', '<cmd>%!clang-format<CR>')
 -- lsp
 -- vim.keymap.set('n', '<leader>lf', vim.lsp.buf.format)
 -- vim.keymap.set('n', '<leader>d', vim.lsp.buf.definition)
@@ -37,16 +38,45 @@ vim.pack.add({
 
 vim.cmd("colorscheme onedark")
 
-require('nvim-treesitter').install({
-	'c',
-	'typescript',
-	'glsl',
-	'rust',
-	'zig',
-	'javascript',
-	'go',
-	'python',
-	'cpp'
+vim.filetype.add({
+    extension = {
+        fs = "glsl",
+        vs = "glsl",
+        frag = "glsl",
+        vert = "glsl",
+        geom = "glsl",
+        comp = "glsl",
+        tesc = "glsl",
+        tese = "glsl",
+    },
+})
+
+require("nvim-treesitter").install({
+    "c",
+    "cpp",
+    "lua",
+    "typescript",
+    "javascript",
+    "glsl",
+    "go",
+    "python",
+})
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = {
+        "c",
+        "cpp",
+        "lua",
+        "typescript",
+        "javascript",
+        "glsl",
+        "go",
+        "python",
+    },
+    callback = function(args)
+        pcall(vim.treesitter.start, args.buf)
+        vim.bo[args.buf].syntax = "on"
+    end,
 })
 
 -- telescope https://github.com/nvim-telescope/telescope.nvim
@@ -78,15 +108,16 @@ vim.keymap.set('n', '<leader>f', builtin.find_files)
 vim.keymap.set('n', '<leader>g', builtin.live_grep)
 
 vim.api.nvim_create_autocmd("QuickFixCmdPost", {
-	pattern = "make",
+    pattern = {"make", "grep"},
 	callback = function()
 		vim.cmd("copen 10")
 		vim.cmd("wincmd p") -- return focus to source window
 	end,
 })
 
-vim.cmd [[set completeopt+=menuone,noselect,popup]]
+-- vim.cmd [[set completeopt+=menuone,noselect,popup]]
 -- autocomplete: C-x C-o
+--
 -- vim.api.nvim_create_autocmd('LspAttach', {
 -- 	group = vim.api.nvim_create_augroup('my.lsp', {}),
 -- 	callback = function(args)
