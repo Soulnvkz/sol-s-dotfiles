@@ -113,9 +113,10 @@ require("telescope").setup({
 		}
 	}
 })
-vim.keymap.set('n', '<leader>tf', builtin.find_files)
-vim.keymap.set('n', '<leader>tg', builtin.live_grep)
-vim.keymap.set('n', '<leader>ts', builtin.lsp_document_symbols)
+vim.keymap.set('n', '<leader>f', builtin.find_files)
+vim.keymap.set('n', '<leader>g', builtin.live_grep)
+vim.keymap.set('n', '<leader>ls', builtin.lsp_document_symbols)
+vim.keymap.set('n', '<leader>ts', builtin.treesitter)
 
 vim.api.nvim_create_autocmd("QuickFixCmdPost", {
     pattern = {"make", "grep"},
