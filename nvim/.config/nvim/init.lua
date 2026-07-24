@@ -43,7 +43,7 @@ vim.cmd("colorscheme onedark")
 
 require("mason").setup()
 require("mason-lspconfig").setup({
-	ensure_installed = { "lua_ls", "pyright", "clangd" },
+	ensure_installed = { "lua_ls", "pyright" },
 	automatic_enable = false, -- vim.lsp.enable() below stays the single source of truth
 })
 

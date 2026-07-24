@@ -28,6 +28,10 @@
       "rev": "3333a52ff548ba0a68af6d8da1e54f9cd96e9179",
       "src": "https://github.com/nvim-telescope/telescope.nvim"
     },
+    "vague.nvim": {
+      "rev": "fcc283576764474ccfbbcca240797d5d7f4d8a78",
+      "src": "https://github.com/vague2k/vague.nvim"
+    },
     "which-key.nvim": {
       "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
       "src": "https://github.com/folke/which-key.nvim"
