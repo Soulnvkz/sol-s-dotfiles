@@ -44,7 +44,11 @@ require("c3").setup({
   lsp = {
     enable = false,
   },
+  formatter = {
+    config_file = "~/.dotfiles/nvim/.config/nvim/.c3fmt",
+  }
 })
+
 
 vim.cmd("colorscheme onedark")
 
