@@ -39,6 +39,13 @@ vim.pack.add({
 	{ src = "https://github.com/folke/which-key.nvim" }, -- keymap hints on pause
 })
 
+-- git clone https://github.com/ManuLinares/nvim-c3 ~/.local/share/nvim/site/pack/plugins/start/nvim-c3
+require("c3").setup({
+  lsp = {
+    enable = false,
+  },
+})
+
 vim.cmd("colorscheme onedark")
 
 require("mason").setup()
